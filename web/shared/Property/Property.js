@@ -94,13 +94,8 @@ export const Property = (props: Props) => {
                         numberOfParkings: 2,
                       }}
                       onSubmit={(values, { setSubmitting }) => {
-                        setTimeout(() => {
-                          alert(JSON.stringify(values, null, 2));
-                          // setSubmitting(true);
-                        }, 500);
-
                         setSubmitting(true);
-                        mutate(values, () => {}, () => {});
+                        mutate({ property: values }, () => {}, () => {});
                       }}
                       validationSchema={Yup.object().shape({
                         livingSurface: Yup.number().required('Required'),
@@ -132,6 +127,7 @@ export const Property = (props: Props) => {
                                 <Grid item md>
                                   <TextField
                                     id="livingSurface"
+                                    name="livingSurface"
                                     label="Living Surface"
                                     margin="normal"
                                     type="number"
@@ -145,6 +141,7 @@ export const Property = (props: Props) => {
                                 <Grid item md>
                                   <TextField
                                     id="landSurface"
+                                    name="landSurface"
                                     label="Land Surface"
                                     margin="normal"
                                     type="number"
@@ -165,6 +162,7 @@ export const Property = (props: Props) => {
                                 <Grid item md>
                                   <TextField
                                     id="numberOfRooms"
+                                    name="numberOfRooms"
                                     label="Number of Rooms"
                                     type="number"
                                     InputProps={{ inputProps: { step: '1' } }}
@@ -176,6 +174,7 @@ export const Property = (props: Props) => {
                                 <Grid item md>
                                   <TextField
                                     id="numberOfParkings"
+                                    name="numberOfParkings"
                                     label="Number of Parkings"
                                     InputProps={{ inputProps: { step: '1' } }}
                                     type="number"
