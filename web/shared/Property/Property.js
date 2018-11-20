@@ -60,14 +60,13 @@ export const Property = (props: Props) => {
   return (
     <>
       <PropertyFragment property={props.property}>
-        {({ property }) => (
+        {(/*{ property } */) => (
           <Flex
             alignItems="center"
             justifyContent="center"
             flexDirection="column"
           >
             <Box>
-              <div>{JSON.stringify(property)}</div>
               <Link href={{ pathname: '/' }}>
                 <Button
                   to="/"
